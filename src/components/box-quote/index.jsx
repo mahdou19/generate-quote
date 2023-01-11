@@ -31,8 +31,6 @@ const CardQuote = () => {
       .then(function (response) {
         const str = response.data;
         const words = str.split("-");
-        console.log(words[0]);
-        console.log(words[1]);
         setQuote({ text: words[0], author: words[1] });
       })
       .catch(function (error) {
@@ -67,7 +65,7 @@ const CardQuote = () => {
               <Typography
                 variant="h4"
                 gutterBottom
-                className={classes.tile}
+                className={classes.text}
                 sx={{ fontFamily: "Playball" }}
               >
                 {quote.text}

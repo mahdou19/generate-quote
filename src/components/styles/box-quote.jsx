@@ -13,7 +13,7 @@ export const useStyles = makeStyles((theme) => ({
    borderRadius: "10px 100px / 120px"
    
   },
-  title: {
+  text: {
     fontFamily: 'Playball'
   }
   
