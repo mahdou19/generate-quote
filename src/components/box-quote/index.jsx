@@ -8,9 +8,37 @@ import Button from "@mui/material/Button";
 import { useStyles } from "../styles/box-quote.jsx";
 import theme, { Colors } from "../styles/theme.jsx";
 
+import axios from "axios";
+
 const CardQuote = () => {
   const classes = useStyles();
-  const [quote, setQuote] = useState("L'exemple d'une mère, en qui la vertu brille, est la grande leçon dont profite une fille.")
+  const [quote, setQuote] = useState({ text: `"The mind unlearns with difficulty what it has long learned."`, author: `Seneca` });
+
+  const func = function maFonction() {
+    const options = {
+      method: "POST",
+      url: "https://motivational-quotes1.p.rapidapi.com/motivation",
+      headers: {
+        "content-type": "application/json",
+        "X-RapidAPI-Key": "6c50ddfcffmshf8a2df1fa54116dp17964djsn88097c9e69aa",
+        "X-RapidAPI-Host": "motivational-quotes1.p.rapidapi.com",
+      },
+      data: '{"key1":"value","key2":"value"}',
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        const str = response.data;
+        const words = str.split("-");
+        console.log(words[0]);
+        console.log(words[1]);
+        setQuote({ text: words[0], author: words[1] });
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
 
   return (
     <Paper
@@ -36,12 +64,26 @@ const CardQuote = () => {
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
-            <Typography variant="h4" gutterBottom className={classes.tile} sx={{fontFamily: 'Playball'}}>
-        " {quote} "
-      </Typography>
+              <Typography
+                variant="h4"
+                gutterBottom
+                className={classes.tile}
+                sx={{ fontFamily: "Playball" }}
+              >
+                {quote.text}
+              </Typography>
+              {quote.author === "null" ? (
+                ""
+              ) : (
+                <Typography variant="overline" display="block" gutterBottom>
+                  {quote.author}
+                </Typography>
+              )}
             </Grid>
             <Grid item>
-              <Button variant="contained">Générer</Button>
+              <Button variant="contained" onClick={func}>
+              Generate
+              </Button>
             </Grid>
           </Grid>
         </Grid>
