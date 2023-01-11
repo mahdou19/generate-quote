@@ -1,47 +1,45 @@
-import React from 'react'
+import React from "react";
 
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { useStyles } from '../styles/box-quote.jsx';
-
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { useStyles } from "../styles/box-quote.jsx";
+import theme from "../styles/theme.jsx";
 
 const CardQuote = () => {
-
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Paper
-    className= {classes.container}
-    sx={{
-      p: 2,
-      margin: 'auto',
-      maxWidth: 300,
-      flexGrow: 1,
-    
-    }}
-  >
-    <Grid container spacing={2}>
-     
-      <Grid item xs={12} sm container>
-        <Grid item xs container direction="column" spacing={2}>
-          <Grid item xs>
-            <Typography gutterBottom variant="subtitle1" component="div">
-              Standard license
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              Full resolution 1920x1080 • JPEG
-            </Typography>
-           
-          </Grid>
-          <Grid item>
-          <Button variant="contained">Contained</Button>
+      className={classes.container}
+      sx={{
+        p: 2,
+        margin: "50px auto",
+        width: 400,
+        minHeight: "15vh",
+
+        [theme.breakpoints.down("sm")]: {
+          width: "100%",
+          m: "30px auto",
+        },
+      }}
+    >
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm container>
+          <Grid item xs container direction="column" spacing={2}>
+            <Grid item xs>
+            <Typography variant="h4" gutterBottom>
+        h4. Heading
+      </Typography>
+            </Grid>
+            <Grid item>
+              <Button variant="contained">Générer</Button>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
-  </Paper>
-  )
-}
+    </Paper>
+  );
+};
 
-export default CardQuote
+export default CardQuote;

@@ -5,7 +5,10 @@ function App() {
   return (
     <div className="App">
         <h1> Générateur de citation</h1>
-        <Card />
+        <div>
+          <Card />
+        </div>
+       
     </div>
   );
 }
