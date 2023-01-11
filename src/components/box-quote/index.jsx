@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+
 import { useStyles } from "../styles/box-quote.jsx";
-import theme from "../styles/theme.jsx";
+import theme, { Colors } from "../styles/theme.jsx";
 
 const CardQuote = () => {
   const classes = useStyles();
+  const [quote, setQuote] = useState("L'exemple d'une mère, en qui la vertu brille, est la grande leçon dont profite une fille.")
+
   return (
     <Paper
       className={classes.container}
       sx={{
         p: 2,
         margin: "50px auto",
-        width: 400,
+        width: 900,
         minHeight: "15vh",
-
+        borderColor: Colors.green,
+        boxShadow: `12px 12px 10px 10px ${Colors.green}`,
+        [theme.breakpoints.down("md")]: {
+          width: 450,
+          m: "30px auto",
+        },
         [theme.breakpoints.down("sm")]: {
-          width: "100%",
+          width: 200,
           m: "30px auto",
         },
       }}
@@ -28,8 +36,8 @@ const CardQuote = () => {
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
-            <Typography variant="h4" gutterBottom>
-        h4. Heading
+            <Typography variant="h4" gutterBottom className={classes.tile} sx={{fontFamily: 'Playball'}}>
+        " {quote} "
       </Typography>
             </Grid>
             <Grid item>

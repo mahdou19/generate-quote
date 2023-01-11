@@ -9,9 +9,12 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     background: Colors.white,
-    border: "solid 1px",
+    boxShadow: `12px 12px 2px 1px ${Colors.green}`,
    borderRadius: "10px 100px / 120px"
    
   },
+  title: {
+    fontFamily: 'Playball'
+  }
   
 }));
