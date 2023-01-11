@@ -14,7 +14,7 @@ const CardQuote = () => {
   const classes = useStyles();
   const [quote, setQuote] = useState({ text: `"The mind unlearns with difficulty what it has long learned."`, author: `Seneca` });
 
-  const func = function maFonction() {
+  const fetchData = function fetchData() {
     const options = {
       method: "POST",
       url: "https://motivational-quotes1.p.rapidapi.com/motivation",
@@ -44,12 +44,12 @@ const CardQuote = () => {
       sx={{
         p: 2,
         margin: "50px auto",
-        width: 900,
+        width: 600,
         minHeight: "15vh",
         borderColor: Colors.green,
         boxShadow: `12px 12px 10px 10px ${Colors.green}`,
         [theme.breakpoints.down("md")]: {
-          width: 450,
+          width: 400,
           m: "30px auto",
         },
         [theme.breakpoints.down("sm")]: {
@@ -79,7 +79,7 @@ const CardQuote = () => {
               )}
             </Grid>
             <Grid item>
-              <Button variant="contained" onClick={func}>
+              <Button variant="contained" onClick={fetchData}>
               Generate
               </Button>
             </Grid>
