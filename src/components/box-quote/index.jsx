@@ -5,11 +5,9 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-import { useStyles } from "../styles/box-quote.jsx";
 import theme, { Colors } from "../styles/theme.jsx";
 
 const CardQuote = () => {
-  const classes = useStyles();
   const [quote, setQuote] = useState({
     text: `"The mind unlearns with difficulty what it has long learned."`,
     author: `Seneca`,
@@ -31,7 +29,6 @@ const CardQuote = () => {
 
   return (
     <Paper
-      className={classes.container}
       sx={{
         p: 2,
         margin: "50px auto",
@@ -39,6 +36,11 @@ const CardQuote = () => {
         minHeight: "15vh",
         borderColor: Colors.green,
         boxShadow: `12px 12px 10px 10px ${Colors.green}`,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: Colors.white,
+        borderRadius: "10px 100px / 120px",
         [theme.breakpoints.down("md")]: {
           width: 400,
           m: "30px auto",
@@ -56,7 +58,6 @@ const CardQuote = () => {
               <Typography
                 variant="h4"
                 gutterBottom
-                className={classes.text}
                 sx={{ fontFamily: "Playball" }}
               >
                 {quote.text}

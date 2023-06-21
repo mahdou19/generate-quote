@@ -3,17 +3,20 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { useStyles } from "../styles/footer";
 
 function Footer() {
-  const classes = useStyles();
   return (
     <Box>
       <AppBar
-        className={classes.container}
         position="fixed"
         color="primary"
-        sx={{ top: "auto", bottom: 0 }}
+        sx={{
+          top: "auto",
+          bottom: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <Toolbar>
           <Typography variant="h6" component="div">
