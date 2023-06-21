@@ -12,31 +12,24 @@ import axios from "axios";
 
 const CardQuote = () => {
   const classes = useStyles();
-  const [quote, setQuote] = useState({ text: `"The mind unlearns with difficulty what it has long learned."`, author: `Seneca` });
+  const [quote, setQuote] = useState({
+    text: `"The mind unlearns with difficulty what it has long learned."`,
+    author: `Seneca`,
+  });
 
-  const fetchData = function fetchData() {
-    const options = {
-      method: "POST",
-      url: "https://motivational-quotes1.p.rapidapi.com/motivation",
-      headers: {
-        "content-type": "application/json",
-        "X-RapidAPI-Key": "6c50ddfcffmshf8a2df1fa54116dp17964djsn88097c9e69aa",
-        "X-RapidAPI-Host": "motivational-quotes1.p.rapidapi.com",
-      },
-      data: '{"key1":"value","key2":"value"}',
-    };
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
-    axios
-      .request(options)
+  function fetchData() {
+    fetch("https://type.fit/api/quotes")
       .then(function (response) {
-        const str = response.data;
-        const words = str.split("-");
-        setQuote({ text: words[0], author: words[1] });
+        return response.json();
       })
-      .catch(function (error) {
-        console.error(error);
+      .then(function (data) {
+        setQuote(data[getRandomInt(data.length)]);
       });
-  };
+  }
 
   return (
     <Paper
@@ -80,7 +73,7 @@ const CardQuote = () => {
             </Grid>
             <Grid item>
               <Button variant="contained" onClick={fetchData}>
-              Generate
+                Generate
               </Button>
             </Grid>
           </Grid>
