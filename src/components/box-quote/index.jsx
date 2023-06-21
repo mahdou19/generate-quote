@@ -8,8 +8,6 @@ import Button from "@mui/material/Button";
 import { useStyles } from "../styles/box-quote.jsx";
 import theme, { Colors } from "../styles/theme.jsx";
 
-import axios from "axios";
-
 const CardQuote = () => {
   const classes = useStyles();
   const [quote, setQuote] = useState({
