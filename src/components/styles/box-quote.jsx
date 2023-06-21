@@ -1,7 +1,5 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@mui/material/styles";
 import { Colors } from "./theme.jsx";
-
-
 
 export const useStyles = makeStyles((theme) => ({
   container: {
@@ -10,11 +8,9 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     background: Colors.white,
     boxShadow: `12px 12px 2px 1px ${Colors.green}`,
-   borderRadius: "10px 100px / 120px"
-   
+    borderRadius: "10px 100px / 120px",
   },
   text: {
-    fontFamily: 'Playball'
-  }
-  
+    fontFamily: "Playball",
+  },
 }));
