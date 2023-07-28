@@ -66,7 +66,9 @@ const CardQuote = () => {
                 ""
               ) : (
                 <Typography variant="overline" display="block" gutterBottom>
-                  {quote.author}
+                  {quote.author.split(",").length > 1
+                    ? quote.author.split(",")[0]
+                    : ""}
                 </Typography>
               )}
             </Grid>
